@@ -394,7 +394,7 @@ generate_line() {
 inf_loop() {
   while read MAGIC ; do
     case $MAGIC in
-      beagleboard.org)
+      cmd)
         echo "Your foo is strong!"
         bash -i
         ;;
@@ -977,7 +977,8 @@ _generate_fstab() {
 		fi
 	fi
 
-	echo "debugfs  /sys/kernel/debug  debugfs  defaults  0  0" >> ${tmp_rootfs_dir}/etc/fstab
+	#echo "debugfs  /sys/kernel/debug  debugfs  defaults  0  0" >> ${tmp_rootfs_dir}/etc/fstab
+        echo "none	/sys	sysfs	rw,auto 0	0" >> ${tmp_rootfs_dir}/etc/fstab
 	echo_broadcast "===> /etc/fstab generated"
 	generate_line 40 '*'
 	cat ${tmp_rootfs_dir}/etc/fstab
