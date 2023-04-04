@@ -979,6 +979,7 @@ _generate_fstab() {
 
 	#echo "debugfs  /sys/kernel/debug  debugfs  defaults  0  0" >> ${tmp_rootfs_dir}/etc/fstab
         echo "none	/sys	sysfs	rw,auto 0	0" >> ${tmp_rootfs_dir}/etc/fstab
+        echo "none    /dev/pts/   devpts    rw,auto 0    0" >> ${tmp_rootfs_dir}/etc/fstab
 	echo_broadcast "===> /etc/fstab generated"
 	generate_line 40 '*'
 	cat ${tmp_rootfs_dir}/etc/fstab
